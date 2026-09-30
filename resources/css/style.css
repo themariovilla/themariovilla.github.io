@@ -525,3 +525,19 @@ footer { background: var(--color-ink); color: var(--color-ink-text); padding: 3r
   display: block; border-radius: var(--radius-md); background: #000;
   margin: 0.25rem 0 0.75rem;
 }
+
+/* ---------- collaborators marquee ---------- */
+.collab-band {
+  width: 100vw; position: relative; left: 50%; right: 50%;
+  margin-left: -50vw; margin-right: -50vw;
+  padding: var(--space-16) 0; overflow: hidden;
+}
+.collab-track { align-items: stretch; animation-duration: 60s; }
+.collab-track .collab-card { flex: 0 0 auto; width: 370px; margin: 0 1.25rem 0 0; }
+@media (max-width: 640px) {
+  .collab-track .collab-card { width: 300px; }
+  .collab-track { animation-duration: 45s; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .collab-track { animation: none; }
+}
