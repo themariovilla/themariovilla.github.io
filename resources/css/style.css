@@ -541,3 +541,18 @@ footer { background: var(--color-ink); color: var(--color-ink-text); padding: 3r
 @media (prefers-reduced-motion: reduce) {
   .collab-track { animation: none; }
 }
+
+/* ---------- collaborators marquee: compact cards ---------- */
+.collab-track .collab-card { width: 310px; gap: .45rem; }
+.collab-track .collab-avatar { width: 64px; height: 64px; }
+.collab-track .collab-card h3 { font-size: 1.1rem; }
+.collab-track .collab-card > p:not(.collab-role):not(.collab-links) {
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+  overflow: hidden; font-size: var(--text-sm);
+}
+.collab-track .collab-stats { gap: .4rem; }
+.collab-track .collab-stats strong { font-size: .95rem; }
+@media (max-width: 640px) {
+  .collab-track .collab-card { width: 260px; }
+  .collab-track .collab-card > p:not(.collab-role):not(.collab-links) { -webkit-line-clamp: 2; }
+}
