@@ -556,3 +556,16 @@ footer { background: var(--color-ink); color: var(--color-ink-text); padding: 3r
   .collab-track .collab-card { width: 260px; }
   .collab-track .collab-card > p:not(.collab-role):not(.collab-links) { -webkit-line-clamp: 2; }
 }
+
+/* Compact Proof of Work / Top posts section (per Mario: make it smaller) */
+#highlights h2 { font-size: 1.75rem; }
+#highlights .section-intro { font-size: .92rem; margin-bottom: 1.5rem; }
+#highlights .mix-grid { columns: 4 220px; column-gap: 1rem; }
+#highlights .mix-grid > * { margin-bottom: 1rem; }
+#highlights .card { padding: 1.25rem; border-radius: 14px; }
+#highlights .deal-card { gap: .45rem; }
+#highlights .deal-card h3 { font-size: 1.02rem; }
+#highlights .deal-card p { font-size: .82rem; }
+#highlights .deal-tag { font-size: .6rem; padding: .25rem .65rem; }
+#highlights .deal-strip img { height: 84px; border-radius: 8px; }
+#highlights .mix-grid .instagram-media { margin: 0 0 1rem !important; }
