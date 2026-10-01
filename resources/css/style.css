@@ -577,3 +577,6 @@ footer { background: var(--color-ink); color: var(--color-ink-text); padding: 3r
 #highlights, #kind-words, #resources, #stories, #collaborators, #work-with-me {
   padding-top: 1.5rem; padding-bottom: 1.5rem;
 }
+
+/* Tighter section spacing site-wide (per Mario) */
+main section { padding-top: 1.5rem; padding-bottom: 1.5rem; }
