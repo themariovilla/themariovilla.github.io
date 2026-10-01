@@ -572,3 +572,8 @@ footer { background: var(--color-ink); color: var(--color-ink-text); padding: 3r
 
 /* Bigger collaborator avatars (per Mario) */
 .collab-track .collab-avatar { width: 104px; height: 104px; }
+
+/* Tighten spacing between Top posts and Work with me (per Mario) */
+#highlights, #kind-words, #resources, #stories, #collaborators, #work-with-me {
+  padding-top: 1.5rem; padding-bottom: 1.5rem;
+}
