@@ -313,8 +313,11 @@ footer { background: var(--color-ink); color: var(--color-ink-text); padding: 3r
 .footer-links a:hover { color: var(--color-ink-text); }
 
 /* ---------- reveal ---------- */
-.reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+.reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; animation: reveal-failsafe .1s ease 5s forwards; }
 .reveal.visible { opacity: 1; transform: none; }
+/* Pure-CSS safety net: if JS adds .reveal but never adds .visible
+   (observer never fires on some mobile in-app browsers), force visible. */
+@keyframes reveal-failsafe { to { opacity: 1; transform: none; } }
 
 @media (max-width: 1020px) {
   .hero { grid-template-columns: 1fr 1fr; }
@@ -337,6 +340,8 @@ footer { background: var(--color-ink); color: var(--color-ink-text); padding: 3r
 @media (max-width: 520px) {
   .deal-grid { grid-template-columns: 1fr; }
   .pillars { grid-template-columns: 1fr; }
+  .mix-grid, #highlights .mix-grid { columns: 1; }
+  .mix-grid iframe { max-width: 100% !important; min-width: 0 !important; }
 }
 
 @media (prefers-reduced-motion: reduce) {
