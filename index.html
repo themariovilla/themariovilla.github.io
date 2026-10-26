@@ -98,6 +98,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./resources/css/style.css?v=20261002b" />
   <link rel="stylesheet" href="./resources/css/ai-mode.css" />
+  <style>
+    .article-list li.pg-hidden { display: none; }
+    .article-list li.pg-first { border-top: 1px solid var(--color-border); }
+    .article-pagination { display: flex; gap: .5rem; justify-content: center; flex-wrap: wrap; margin-top: 1.6rem; }
+    .article-pagination .pg-btn { min-width: 44px; min-height: 44px; padding: .55rem .9rem; border: 1px solid var(--color-border); border-radius: var(--radius-full); background: var(--color-surface); color: var(--color-text); font-family: var(--font-body); font-size: .9rem; font-weight: 700; cursor: pointer; transition: border-color .15s ease, background .15s ease, color .15s ease; }
+    .article-pagination .pg-btn:hover { border-color: var(--color-accent); color: var(--color-accent); }
+    .article-pagination .pg-btn.is-active { background: var(--color-ink); color: var(--color-ink-text); border-color: transparent; }
+    .article-pagination .pg-btn.is-active:hover { color: var(--color-ink-text); }
+  </style>
 </head>
 <body>
   <header>
@@ -504,7 +513,7 @@
       <div class="offer-panels">
         <div class="offer-panel is-active" data-offer-panel="res-articles" role="tabpanel">
 <ul class="article-list">
-        <li>
+        <li class="pg-first">
           <a href="./stories/san-marcos-resort-chandler.html">
             <span class="article-date">Oct 26, 2026</span>
             <h3>Historic Soul, Resort Heart: Crowne Plaza San Marcos in Chandler</h3>
@@ -536,7 +545,7 @@
             <span class="article-link">Read on LinkedIn</span>
           </a>
         </li>
-        <li>
+        <li class="pg-hidden">
           <a href="https://www.linkedin.com/pulse/naturally-leavened-dough-live-jazz-what-makes-monzu-must-visit-villa-bjvyc" target="_blank" rel="noopener noreferrer">
             <span class="article-date">Jun 9, 2026</span>
             <h3>Naturally Leavened Dough and Live Jazz: What Makes Monzu a Must-Visit in Las Vegas</h3>
@@ -544,7 +553,7 @@
             <span class="article-link">Read on LinkedIn</span>
           </a>
         </li>
-        <li>
+        <li class="pg-hidden">
           <a href="https://www.linkedin.com/pulse/creator-logics-holiday-party-where-creators-industry-pros-mario-villa-ggpgc" target="_blank" rel="noopener noreferrer">
             <span class="article-date">May 29, 2026</span>
             <h3>Creator Logic&apos;s Holiday Party: Where Creators and Industry Pros Come Together</h3>
@@ -552,7 +561,7 @@
             <span class="article-link">Read on LinkedIn</span>
           </a>
         </li>
-        <li>
+        <li class="pg-hidden">
           <a href="https://www.linkedin.com/pulse/lively-brunch-cocktails-orchard-tavern-phoenix-mario-villa-5z5hc" target="_blank" rel="noopener noreferrer">
             <span class="article-date">May 29, 2026</span>
             <h3>Lively Brunch and Cocktails at Orchard Tavern in Phoenix</h3>
@@ -561,6 +570,10 @@
           </a>
         </li>
       </ul>
+        <nav class="article-pagination" aria-label="Article pages">
+          <button type="button" class="pg-btn is-active" data-page="1" aria-current="page">1</button>
+          <button type="button" class="pg-btn" data-page="2">2</button>
+        </nav>
         </div>
         <div class="offer-panel" data-offer-panel="res-rates" role="tabpanel">
           <div class="card">
@@ -667,7 +680,7 @@
       <h2>Stories from <em>my life.</em></h2>
       <p class="section-intro">Personal essays on school, work, travel, and building a creative business.</p>
       <ul class="article-list">
-        <li>
+        <li class="pg-first">
           <a href="./stories/going-back-to-school-at-30.html">
             <span class="article-date">Sep 13, 2026</span>
             <h3>Why I Went Back to School at 30</h3>
@@ -699,7 +712,7 @@
             <span class="article-link">Read the story</span>
           </a>
         </li>
-        <li>
+        <li class="pg-hidden">
           <a href="./stories/why-ai-why-now.html">
             <span class="article-date">Sep 13, 2026</span>
             <h3>Why AI, Why Now</h3>
@@ -707,7 +720,7 @@
             <span class="article-link">Read the story</span>
           </a>
         </li>
-        <li>
+        <li class="pg-hidden">
           <a href="./stories/from-entertainment-to-marketing.html">
             <span class="article-date">Sep 13, 2026</span>
             <h3>From Film School to Dashboards</h3>
@@ -715,7 +728,7 @@
             <span class="article-link">Read the story</span>
           </a>
         </li>
-        <li>
+        <li class="pg-hidden">
           <a href="./stories/the-business-behind-the-content.html">
             <span class="article-date">Sep 13, 2026</span>
             <h3>The Business Behind the Content</h3>
@@ -724,6 +737,10 @@
           </a>
         </li>
       </ul>
+        <nav class="article-pagination" aria-label="Article pages">
+          <button type="button" class="pg-btn is-active" data-page="1" aria-current="page">1</button>
+          <button type="button" class="pg-btn" data-page="2">2</button>
+        </nav>
     </section>
 
     <section id="collaborators" class="collab-band" aria-label="Collaborators and mentors">
@@ -1055,5 +1072,34 @@
   <script src="./resources/js/offers.js"></script>
   <script src="./resources/js/ai-mode.js"></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    (function () {
+      var PER_PAGE = 4;
+      function setupList(list) {
+        var items = Array.prototype.slice.call(list.children);
+        if (items.length <= PER_PAGE) return;
+        var nav = list.nextElementSibling;
+        if (!nav || !nav.classList.contains('article-pagination')) return;
+        var buttons = Array.prototype.slice.call(nav.querySelectorAll('.pg-btn'));
+        function showPage(page) {
+          items.forEach(function (item, i) {
+            var visible = i >= (page - 1) * PER_PAGE && i < page * PER_PAGE;
+            item.classList.toggle('pg-hidden', !visible);
+            item.classList.toggle('pg-first', visible && i === (page - 1) * PER_PAGE);
+          });
+          buttons.forEach(function (btn) {
+            var active = parseInt(btn.getAttribute('data-page'), 10) === page;
+            btn.classList.toggle('is-active', active);
+            if (active) { btn.setAttribute('aria-current', 'page'); } else { btn.removeAttribute('aria-current'); }
+          });
+        }
+        buttons.forEach(function (btn) {
+          btn.addEventListener('click', function () { showPage(parseInt(btn.getAttribute('data-page'), 10)); });
+        });
+        showPage(1);
+      }
+      document.querySelectorAll('.article-list').forEach(setupList);
+    })();
+  </script>
 </body>
 </html>
