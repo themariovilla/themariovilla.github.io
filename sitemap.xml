@@ -46,6 +46,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://themariovilla.github.io/stories/san-marcos-resort-chandler.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://themariovilla.github.io/stories/rb-bed-and-breakfast-new-orleans.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
